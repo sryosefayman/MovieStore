@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie store</title>
+    <title>Movie Store</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/forms.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,33 +20,40 @@
 <body>
     <nav class="nav-bar">
         <div class="logo">
-            movie store
+            Movie Store
         </div>
         <ul class="nav-link">
             <li><a class="active" href="/Home/Index">Home</a></li>
             <li><a href="/Home/About">About</a></li>
+
             @if (!string.IsNullOrEmpty(username))
             {
                 <li>
                     <a href="#">Admin <i class="fa fa-caret-down"></i></a>
-
                     <ul class="dropdown-nav-link">
-                        <li><a href="/Genre/Add">Genre</a></li>
-                        <li><a href="/Movie/Add">Movie</a></li>
+                        <li><a href="/Genre/Add">Add Genre</a></li>
+                        <li><a href="/Movie/Add">Add Movie</a></li>
                         <li><a href="/UserAuthentication/Logout">Logout</a></li>
                     </ul>
                 </li>
             }
-           
-            @if(string.IsNullOrEmpty(username)){
+            else
+            {
                 <li><a href="/UserAuthentication/Login">Login</a></li>
+                <li><a href="/UserAuthentication/Register">Register</a></li>
             }
         </ul>
     </nav>
+
     <div class="container">
-       @RenderBody()
+        @RenderBody()
     </div>
+
+    <!-- Render the Scripts section -->
+    @RenderSection("Scripts", required: false)
+
     <footer>
+        <!-- Footer content can go here -->
     </footer>
 </body>
 </html>

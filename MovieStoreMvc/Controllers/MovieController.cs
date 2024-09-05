@@ -20,7 +20,7 @@ namespace MovieStoreMvc.Controllers
         }
         public IActionResult Add()
         {
-            var model = new Movie();
+            var model = new Movie();// transfer the genre list to HTML 
             model.GenreList = _genService.List().Select(a => new SelectListItem { Text = a.GenreName, Value = a.Id.ToString() });
             return View(model);
         }
@@ -28,7 +28,7 @@ namespace MovieStoreMvc.Controllers
         [HttpPost]
         public IActionResult Add(Movie model)
         {
-            model.GenreList = _genService.List().Select(a => new SelectListItem { Text = a.GenreName, Value = a.Id.ToString() });
+            model.GenreList = _genService.List().Select(a => new SelectListItem { Text = a.GenreName, Value = a.Id.ToString() }); 
             if (!ModelState.IsValid)
                 return View(model);
             if (model.ImageFile != null)

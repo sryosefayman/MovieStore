@@ -37,7 +37,7 @@ body {
     font-family: 'Mukta', sans-serif;
 }
 
-/* Adjust the container to avoid overlap with the nav bar */
+/* Container to avoid overlap with the nav bar */
 .container {
     padding: 2rem;
     width: 100%;
@@ -72,20 +72,20 @@ body {
     display: flex;
 }
 
-    .nav-link > li {
-        position: relative;
-    }
+.nav-link > li {
+    position: relative;
+}
 
-        .nav-link > li a {
-            padding: 0 1.2rem;
-            text-decoration: none;
-            font-size: 16px;
-            color: var(--primary-color);
-        }
+.nav-link > li a {
+    padding: 0 1.2rem;
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--primary-color);
+}
 
-    .nav-link li a:hover {
-        color: #b3b3b3; /* Lighter grey on hover */
-    }
+.nav-link li a:hover {
+    color: #b3b3b3; /* Lighter grey on hover */
+}
 
 /* Dropdown menu styling */
 .dropdown-nav-link {
@@ -132,16 +132,16 @@ body {
     box-shadow: var(--box-shadow);
 }
 
-    .search-bar button {
-        padding: 0.7rem 1rem;
-        border: none;
-        background-color: var(--btn-secondary-bg);
-        color: var(--primary-color);
-        border-radius: var(--border-radius);
-        cursor: pointer;
-        box-shadow: var(--box-shadow);
-        font-size: 1rem;
-    }
+.search-bar button {
+    padding: 0.7rem 1rem;
+    border: none;
+    background-color: var(--btn-secondary-bg);
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+}
 
 /* Login button styling */
 .login-button {
@@ -206,12 +206,18 @@ form button:hover {
     background: linear-gradient(to right, #b81d24, #e50914); /* Lighter gradient on hover */
 }
 
-
-.message-box {
-    font-size: 16px;
-    padding: 0.3rem 0;
+/* Alert messages */
+.alert {
+    background-color: var(--alert-background);
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem; /* Space below alert */
 }
 
+/* Input container styling */
 .input-container {
     width: 100%;
     display: flex;
@@ -220,7 +226,7 @@ form button:hover {
 }
 
 label {
-    font-size: 16px;
+    font-size: 1rem;
     margin-bottom: 0.5rem; /* Space between label and input */
     color: var(--primary-color);
 }
@@ -229,7 +235,7 @@ label {
     padding: 0.7rem;
     border: 1px solid var(--border-color);
     box-shadow: var(--box-shadow);
-    font-size: 15px;
+    font-size: 1rem;
     width: 100%;
     color: var(--primary-color);
     background-color: var(--input-background);
@@ -242,100 +248,40 @@ label {
     box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2); /* Example focus shadow */
 }
 
-.alert {
-    background-color: var(--alert-background);
-    padding: 0.5rem;
-    font-size: 17px;
-    color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-bottom: 1rem; /* Space below alert */
-}
-
-.btn {
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    font-weight: 500;
-    border: 0;
-    cursor: pointer;
-    box-shadow: var(--box-shadow);
-    line-height: 1.5;
-    display: inline-block;
-    text-decoration: none;
-    margin-right: 0.5rem; /* Space between buttons */
-}
-
-.btn-default {
-    background: var(--btn-primary-bg);
-    background: linear-gradient(to right, #e50914, #b81d24);
-}
-
-.btn-sec {
-    background: var(--btn-secondary-bg);
-    background: linear-gradient(to right, #333, #000);
-}
-
-.btn-danger {
-    background: var(--btn-danger-bg);
-    background: linear-gradient(to right, #c8102e, #a4001d);
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--primary-color);
-}
-
-.pb-10 {
-    padding-bottom: 10px;
-}
-
+/* Table styling */
 .tbl-container {
     font-family: 'Mukta', sans-serif;
-    margin: 1.2rem 0;
-}
-
-.tbl-container table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
+    background-color: rgba(20, 20, 20, 0.7); /* Semi-transparent dark background */
     color: var(--primary-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    overflow-x: auto; /* Allows horizontal scrolling for tables */
 }
 
-.tbl-container table th,
-.tbl-container table td {
-    font-size: 16px;
-    padding: 0.8rem;
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
     text-align: left;
+    border-bottom: 1px solid var(--border-color); /* Divider between rows */
 }
 
-.tbl-container table tr:nth-child(even) {
-    background-color: #1e1e1e; /* Darker rows */
+th {
+    background-color: #222; /* Slightly lighter dark background for headers */
 }
 
-.tbl-container table tr:hover {
-    background-color: #333; /* Darker on hover */
-}
-/* About Us section styling */
-.about-us {
-background-color: rgba(20, 20, 20, 0.7); /* Semi-transparent dark background to ensure text readability */
-color: var(--primary-color); /* Light grey color for text */
-padding: 2rem; /* Space around the content */
-border-radius: var(--border-radius); /* Rounded corners */
-margin: 2rem auto; /* Center the section with margin on top and bottom */
-max-width: 600px; /* Limit the width */
-text-align: center; /* Center-align text */
-box-shadow: var(--box-shadow); /* Add shadow for a modern look */
+tr:hover {
+    background-color: #333; /* Highlight row on hover */
 }
 
-.about-us h2 {
-    font-size: 2rem; /* Adjust the font size */
-    margin-bottom: 1rem; /* Space below the heading */
+@media (max-width: 768px) {
+    .search-bar {
+        width: 100%;
+        margin-top: var(--nav-height);
+    }
 }
-
-.about-us p {
-    font-size: 1rem; /* Adjust the font size */
-    line-height: 1.5; /* Improve readability */
-}
-
-
