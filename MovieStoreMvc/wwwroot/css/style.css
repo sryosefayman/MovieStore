@@ -1,0 +1,241 @@
+/* General resets */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Root variables for color scheme */
+:root {
+    --bg-color: #141414; /* Dark background for the page */
+    --nav-bg-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background for the nav bar */
+    --font-mukta: "Mukta", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+    --text-color: #e5e5e5; /* Light grey text color */
+    --border-color: #444; /* Border color */
+    --box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px; /* Box shadow */
+    --btn-primary-bg: #e50914; /* Primary button color */
+    --btn-primary-bg-hover: #b81d24; /* Hover color for primary buttons */
+    --nav-height: 60px; /* Height of the navigation bar */
+    --border-radius: 0.25rem; /* Border radius for rounded corners */
+}
+
+/* Body and layout */
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color); /* Fallback color */
+    background-image: url('/images/netflix.jpg'); /* Path to the image */
+    background-size: cover; /* Adjusts the image size to cover the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-color);
+    font-family: var(--font-mukta);
+}
+
+/* Adjust the container to avoid overlap with the nav bar */
+.container {
+    padding: 2rem;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: var(--nav-height); /* Adds margin to avoid overlap with the nav bar */
+}
+
+/* Navigation bar styling */
+.nav-bar {
+    font-family: var(--font-poppins);
+    display: flex;
+    background-color: var(--nav-bg-color); /* Semi-transparent background */
+    padding: 1.1rem 0.5px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Thinner border for a modern look */
+    position: fixed; /* Keeps the nav bar at the top of the viewport */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures the nav bar is on top of other content */
+    backdrop-filter: blur(2px); /* Optional: Adds a blur effect to the background */
+    height: var(--nav-height); /* Set the height of the nav bar */
+}
+
+/* Preserve existing styles for navigation links */
+.nav-link {
+    list-style: none;
+    display: flex;
+}
+
+    .nav-link > li {
+        position: relative;
+    }
+
+        .nav-link > li a {
+            padding: 0 1.2rem;
+            text-decoration: none;
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+    .nav-link li a:hover {
+        color: #b3b3b3; /* Lighter grey on hover */
+    }
+
+/* Dropdown menu styling */
+.dropdown-nav-link {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    margin-top: 0.2rem;
+    min-width: 6.5rem;
+    transition: all 0.5s ease;
+    visibility: hidden;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+    .dropdown-nav-link li a {
+        padding: 0.4rem 1rem;
+        display: block;
+    }
+
+.nav-link li:hover > ul,
+.nav-link li:focus-within > ul,
+.nav-link li ul:hover,
+.nav-link li ul:focus {
+    visibility: visible;
+}
+
+/* Adjust search bar to avoid overlap */
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0 1%;
+    margin-top: var(--nav-height); /* Adds margin to avoid overlap with the nav bar */
+}
+
+    .search-bar input[type="text"] {
+        padding: 0.7rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius); /* Match border radius */
+        font-size: 1rem;
+        width: 100%; /* Full width within its container */
+        max-width: 400px; /* Adjust as needed */
+        background-color: #333;
+        color: var(--text-color);
+        border: none; /* Remove default border */
+        outline: none; /* Remove default outline */
+        flex: 1; /* Grow to fill available space */
+    }
+
+    .search-bar button {
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+        border: none;
+        background-color: var(--btn-primary-bg); /* Same as primary button color */
+        color: var(--text-color);
+        cursor: pointer;
+        margin-left: 0.5rem; /* Space between input and button */
+        box-shadow: var(--box-shadow); /* Match shadow effect */
+    }
+
+        .search-bar button:hover {
+            background-color: var(--btn-primary-bg-hover); /* Lighter shade on hover */
+        }
+
+/* Login button styling to match nav bar */
+.login-button {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--btn-primary-bg); /* Same as primary button color */
+    color: var(--text-color);
+    text-decoration: none;
+    box-shadow: var(--box-shadow); /* Match shadow effect */
+    transition: background-color 0.3s ease;
+}
+
+    .login-button:hover {
+        background-color: var(--btn-primary-bg-hover); /* Lighter shade on hover */
+    }
+
+/* Movies section */
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.movie-card {
+    padding: 2%;
+    margin: 2%;
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: #222; /* Darker background for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .movie-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7); /* Slightly more pronounced shadow on hover */
+    }
+
+    .movie-card img {
+        width: 100%;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    .movie-card h3 {
+        color: var(--text-color);
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+
+    .movie-card p {
+        color: var(--text-color);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+/* Pagination links */
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+    .pagination a {
+        padding: 0.5rem 1rem;
+        margin: 0 0.25rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--btn-primary-bg);
+        color: var(--text-color);
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+        .pagination a:hover {
+            background-color: var(--btn-primary-bg-hover); /* Slightly lighter on hover */
+        }
+
+/* Footer styling */
+.footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--text-color);
+    padding: 1rem 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}

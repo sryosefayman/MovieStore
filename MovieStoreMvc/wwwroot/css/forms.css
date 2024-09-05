@@ -1,0 +1,341 @@
+/* General resets */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Root variables for color scheme */
+:root {
+    --primary-color: #e5e5e5; /* Light grey for text */
+    --background-color: #141414; /* Dark background */
+    --input-background: #333; /* Darker background for inputs */
+    --border-color: #444; /* Border color for inputs */
+    --alert-background: #d32f2f; /* Red for alerts */
+    --btn-primary-bg: #e50914; /* Red gradient for primary buttons */
+    --btn-secondary-bg: #333; /* Darker background for secondary buttons */
+    --btn-danger-bg: #c8102e; /* Danger button color */
+    --border-radius: 5px; /* Border radius for buttons and inputs */
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Box shadow for inputs and buttons */
+    --nav-bg-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background for the nav bar */
+    --nav-height: 60px; /* Height of the navigation bar */
+}
+
+/* Body and layout */
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-color); /* Fallback color */
+    background-image: url('/images/netflix.jpg'); /* Path to the image */
+    background-size: cover; /* Adjusts the image size to cover the entire element */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--primary-color);
+    font-family: 'Mukta', sans-serif;
+}
+
+/* Adjust the container to avoid overlap with the nav bar */
+.container {
+    padding: 2rem;
+    width: 100%;
+    background-image: url('/images/netflix.jpg'); /* Correct path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: var(--nav-height); /* Adds margin to avoid overlap with the nav bar */
+}
+
+/* Navigation bar */
+.nav-bar {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    background-color: var(--nav-bg-color); /* Semi-transparent background */
+    padding: 1.1rem 0.5px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Thinner border for a modern look */
+    position: fixed; /* Keeps the nav bar at the top of the viewport */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures the nav bar is on top of other content */
+    backdrop-filter: blur(2px); /* Optional: Adds a blur effect to the background */
+    height: var(--nav-height); /* Set the height of the nav bar */
+}
+
+/* Navigation links */
+.nav-link {
+    list-style: none;
+    display: flex;
+}
+
+    .nav-link > li {
+        position: relative;
+    }
+
+        .nav-link > li a {
+            padding: 0 1.2rem;
+            text-decoration: none;
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+    .nav-link li a:hover {
+        color: #b3b3b3; /* Lighter grey on hover */
+    }
+
+/* Dropdown menu styling */
+.dropdown-nav-link {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    margin-top: 0.2rem;
+    min-width: 6.5rem;
+    transition: all 0.5s ease;
+    visibility: hidden;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-nav-link li a {
+    padding: 0.4rem 1rem;
+    display: block;
+}
+
+.nav-link li:hover > ul,
+.nav-link li:focus-within > ul,
+.nav-link li ul:hover,
+.nav-link li ul:focus {
+    visibility: visible;
+}
+
+/* Search bar styling */
+.search-bar {
+    width: 25%;
+    display: flex;
+    margin-top: var(--nav-height); /* Adds margin to avoid overlap with the nav bar */
+    padding: 0 1%;
+}
+
+.search-bar input[type="text"] {
+    padding: 0.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--input-background);
+    color: var(--primary-color);
+    box-shadow: var(--box-shadow);
+}
+
+    .search-bar button {
+        padding: 0.7rem 1rem;
+        border: none;
+        background-color: var(--btn-secondary-bg);
+        color: var(--primary-color);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        box-shadow: var(--box-shadow);
+        font-size: 1rem;
+    }
+
+/* Login button styling */
+.login-button {
+    padding: 0.7rem 1rem;
+    border: none;
+    background-color: var(--btn-primary-bg);
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+}
+
+/* General form styling */
+form {
+    font-family: 'Mukta', sans-serif;
+    background-color: rgba(20, 20, 20, 0.7); /* Semi-transparent dark background */
+    color: var(--primary-color); /* Light grey text color */
+    margin: 2rem auto; /* Center the form and add margin */
+    padding: 2rem; /* Increase padding for a more spacious feel */
+    border-radius: var(--border-radius); /* Rounded corners */
+    border: 1px solid var(--border-color); /* Border color */
+    box-shadow: var(--box-shadow); /* Shadow for depth */
+    max-width: 500px; /* Limit the width to fit within the container */
+    text-align: center; /* Center-align text within the form */
+}
+
+/* Form input styling */
+form input[type="text"],
+form input[type="password"],
+form button {
+    background-color: var(--input-background); /* Dark background for inputs */
+    color: var(--primary-color); /* Light text color */
+    border: 1px solid var(--border-color); /* Border color */
+    border-radius: var(--border-radius); /* Rounded corners */
+    box-shadow: var(--box-shadow); /* Shadow for inputs */
+    padding: 0.7rem; /* Padding inside inputs and buttons */
+    font-size: 1rem; /* Font size for better readability */
+    width: calc(100% - 1.4rem); /* Full width minus padding */
+    margin-bottom: 1rem; /* Space between inputs/buttons */
+}
+
+/* Focus and hover states */
+form input:focus,
+form button:hover {
+    border-color: var(--btn-primary-bg); /* Change border color on focus/hover */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2); /* Example focus shadow */
+}
+
+/* Button styling */
+form button {
+    background: var(--btn-primary-bg); /* Primary button color */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Pointer cursor for buttons */
+    font-weight: 500; /* Slightly bolder text */
+    line-height: 1.5; /* Line height for better spacing */
+}
+
+form button:hover {
+    background: linear-gradient(to right, #b81d24, #e50914); /* Lighter gradient on hover */
+}
+
+
+.message-box {
+    font-size: 16px;
+    padding: 0.3rem 0;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    padding: 0.4rem 0;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 0.5rem; /* Space between label and input */
+    color: var(--primary-color);
+}
+
+.input {
+    padding: 0.7rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    font-size: 15px;
+    width: 100%;
+    color: var(--primary-color);
+    background-color: var(--input-background);
+    border-radius: var(--border-radius);
+}
+
+.input:focus {
+    border-color: var(--btn-primary-bg);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2); /* Example focus shadow */
+}
+
+.alert {
+    background-color: var(--alert-background);
+    padding: 0.5rem;
+    font-size: 17px;
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem; /* Space below alert */
+}
+
+.btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    line-height: 1.5;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 0.5rem; /* Space between buttons */
+}
+
+.btn-default {
+    background: var(--btn-primary-bg);
+    background: linear-gradient(to right, #e50914, #b81d24);
+}
+
+.btn-sec {
+    background: var(--btn-secondary-bg);
+    background: linear-gradient(to right, #333, #000);
+}
+
+.btn-danger {
+    background: var(--btn-danger-bg);
+    background: linear-gradient(to right, #c8102e, #a4001d);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.tbl-container {
+    font-family: 'Mukta', sans-serif;
+    margin: 1.2rem 0;
+}
+
+.tbl-container table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: var(--primary-color);
+}
+
+.tbl-container table th,
+.tbl-container table td {
+    font-size: 16px;
+    padding: 0.8rem;
+    text-align: left;
+}
+
+.tbl-container table tr:nth-child(even) {
+    background-color: #1e1e1e; /* Darker rows */
+}
+
+.tbl-container table tr:hover {
+    background-color: #333; /* Darker on hover */
+}
+/* About Us section styling */
+.about-us {
+background-color: rgba(20, 20, 20, 0.7); /* Semi-transparent dark background to ensure text readability */
+color: var(--primary-color); /* Light grey color for text */
+padding: 2rem; /* Space around the content */
+border-radius: var(--border-radius); /* Rounded corners */
+margin: 2rem auto; /* Center the section with margin on top and bottom */
+max-width: 600px; /* Limit the width */
+text-align: center; /* Center-align text */
+box-shadow: var(--box-shadow); /* Add shadow for a modern look */
+}
+
+.about-us h2 {
+    font-size: 2rem; /* Adjust the font size */
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+.about-us p {
+    font-size: 1rem; /* Adjust the font size */
+    line-height: 1.5; /* Improve readability */
+}
+
+
